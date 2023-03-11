@@ -1913,6 +1913,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3465d47e6980d94b9245d0b8c18042e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerCamera: {fileID: 0}
+  Volcano: {fileID: 0}
 --- !u!1 &6965507006470831380
 GameObject:
   m_ObjectHideFlags: 0
