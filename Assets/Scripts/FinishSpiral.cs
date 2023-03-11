@@ -8,7 +8,7 @@ public class FinishSpiral : MonoBehaviour
     {
         if(Player.Instance.gameObject == collision.attachedRigidbody.gameObject)
         {
-            Player.Win();
+            Player.Instance.Win();
         }
     }
 }

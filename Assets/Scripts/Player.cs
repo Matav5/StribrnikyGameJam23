@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -44,6 +45,13 @@ public class Player : SceneSingleton<Player>
             yield return new WaitForEndOfFrame();
         }
         hit.OnButtonUp();
+    }
+
+    public void Win() {
+    }
+
+    internal void GameOver() {
+
     }
 }
 
