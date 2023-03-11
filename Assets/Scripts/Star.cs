@@ -6,7 +6,9 @@ using UnityEngine;
 public class Star : GravityObject, IInteractable
 {
     [SerializeField]
-    public float force = 100;
+    public float pullForce = 5;
+    [SerializeField]
+    public float pulseForce = 100;
     [SerializeField]
     private float radius = 5;
     [SerializeField]
@@ -33,11 +35,6 @@ public class Star : GravityObject, IInteractable
         SetRadius();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-      
-    }
     private void FixedUpdate()
     {
         if (Vector2.Distance(transform.position, Player.Instance.transform.position) < Radius)
@@ -45,31 +42,30 @@ public class Star : GravityObject, IInteractable
             
             Rigidbody2D RbTpAttract = Player.Instance.Body;
 
-            RbTpAttract.AddForce((Body.position - Player.Instance.Body.position).normalized);
+            RbTpAttract.AddForce((Body.position - Player.Instance.Body.position).normalized * pullForce);
              
         }
     }
 
-    private void OnDrawGizmos()
-    {   
-        Gizmos.color= Color.green;
-        Gizmos.DrawWireSphere(transform.position, Radius);
-    }
-
-  
-
     public void OnButtonDown()
     {
-        Debug.Log("clikc");
         if (Vector2.Distance(transform.position, Player.Instance.transform.position) < Radius)
         {
             Rigidbody2D RbTpAttract = Player.Instance.Body;
 
-            RbTpAttract.AddForce((Player.Instance.Body.position - Body.position).normalized * force);
+            RbTpAttract.AddForce((Player.Instance.Body.position - Body.position).normalized * pulseForce);
         }
     }
 
     public void OnButtonUp()
     {
+        //Nic
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.rigidbody.gameObject == Player.Instance.gameObject)
+        {
+            Player.Instance.GameOver();
+        }
     }
 }
