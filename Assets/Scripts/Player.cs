@@ -1,22 +1,26 @@
 
+using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class Player : SceneSingleton<Player>
 {
     private Rigidbody2D body;
     public Rigidbody2D Body => body;
-
+    public CinemachineVirtualCamera PlayerCamera;
+    public Volcano Volcano;
     protected override void Awake()
     {
         body = GetComponent<Rigidbody2D>();
     }
     private void Start()
     {
-        
+        Vector2 dir = Map.Instance.StarterBoost.directionPoint.position - transform.position;
+        Body.AddForce(dir.normalized * 100);
     }
     private void FixedUpdate()
     {
@@ -35,8 +39,19 @@ public class Player : SceneSingleton<Player>
                     interactable.OnButtonDown();
                     StartCoroutine(Wait(interactable));
                 }
+                else
+                {
+                    if (Volcano != null)
+                        Volcano.StartFiring();
+                }
+            }
+            else
+            {
+                if (Volcano != null)
+                    Volcano.StartFiring();
             }
         }
+        
     }
     public IEnumerator Wait(IInteractable hit)
     {
@@ -51,7 +66,7 @@ public class Player : SceneSingleton<Player>
     }
 
     internal void GameOver() {
-
+        SceneLoader.Instance.Restart();
     }
 }
 

@@ -10,8 +10,9 @@ public class StarterBoost : MonoBehaviour
     {
         if(Player.Instance.gameObject == collision.attachedRigidbody.gameObject)
         {
-            Vector2 dir = directionPoint.position - transform.position;
-            Player.Instance.Body.AddForce(dir * force);
+            Player.Instance.Body.velocity = Vector2.zero;
+           Vector2 dir = directionPoint.position - transform.position;
+            Player.Instance.Body.AddForce(dir.normalized * force);
         }
     }
 }

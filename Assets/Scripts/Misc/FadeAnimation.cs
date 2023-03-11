@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FadeAnimation : MonoBehaviour
 {
@@ -8,11 +9,11 @@ public class FadeAnimation : MonoBehaviour
 
     public float fadeDuration = 2;
     public Color fadeColor;
-    private Renderer rend;
+    private Image rend;
 
     void Start()
     {
-        rend = GetComponent<Renderer>();
+        rend = GetComponent<Image>();
         if (fadeOnStart) FadeIn();
     }
 
@@ -34,13 +35,13 @@ public class FadeAnimation : MonoBehaviour
             //Debug.Log(timer);
             newColor = fadeColor;
             newColor.a = Mathf.Lerp(alphaIn, alphaOut, timer / fadeDuration);
-            rend.material.SetColor("_BaseColor", newColor);
+            rend.color = newColor;
             timer += Time.deltaTime;
             yield return null;
         }
         newColor = fadeColor;
         newColor.a = Mathf.Lerp(alphaIn, alphaOut, timer / fadeDuration);
-        rend.material.SetColor("_BaseColor", newColor);
+        rend.color = newColor;
 
     }
 }
