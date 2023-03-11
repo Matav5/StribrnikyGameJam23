@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    public void Click();
+    public void OnButtonDown();
+    public void OnButtonUp();
 }

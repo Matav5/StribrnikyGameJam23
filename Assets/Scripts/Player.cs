@@ -26,9 +26,22 @@ public class Player : SceneSingleton<Player>
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hit)
             {
-                hit.rigidbody.GetComponent<IInteractable>()?.Click();
+                IInteractable interactable = hit.rigidbody.GetComponent<IInteractable>();
+                if (interactable != null)
+                {
+                    interactable.OnButtonDown();
+                    StartCoroutine(Wait(interactable));
+                }
             }
         }
+    }
+    public IEnumerator Wait(IInteractable hit)
+    {
+        while (Input.GetMouseButton(0))
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        hit.OnButtonUp();
     }
 }
 
