@@ -68,8 +68,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472e994fa8047f347952010b649ad9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 100
+  force: 10
   radius: 5
+  increasedRadius: 10
   outerRing: {fileID: 8700784726705678376}
 --- !u!1 &1398716661076661314
 GameObject:
@@ -244,7 +245,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: -2413806693520163455, guid: dff37c2b5b2ecce4bb709781d9a4460e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.5529412}
   m_FlipX: 0

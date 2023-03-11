@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,18 +8,12 @@ using UnityEngine;
 public class Player : SceneSingleton<Player>
 {
     public Rigidbody2D Body;
+    public Volcano Volcano;
     protected override void Awake()
     {
         Body = GetComponent<Rigidbody2D>();
     }
-    private void Start()
-    {
-        
-    }
-    private void FixedUpdate()
-    {
-
-    }
+   
     public void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -32,6 +27,16 @@ public class Player : SceneSingleton<Player>
                     interactable.OnButtonDown();
                     StartCoroutine(Wait(interactable));
                 }
+                else
+                {
+                    if(Volcano!= null)
+                        Volcano.StartFiring();
+                }
+            }
+            else
+            {
+                if (Volcano != null)
+                    Volcano.StartFiring();
             }
         }
     }
@@ -42,6 +47,16 @@ public class Player : SceneSingleton<Player>
             yield return new WaitForEndOfFrame();
         }
         hit.OnButtonUp();
+    }
+
+    internal void GameOver()
+    {
+        Debug.Log("You lost zulul");
+    }
+
+    internal static void Win()
+    {
+        Debug.Log("You won zulul");
     }
 }
 
