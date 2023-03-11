@@ -1914,7 +1914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCamera: {fileID: 0}
-  Volcano: {fileID: 0}
+  Volcano: {fileID: 454208923}
 --- !u!1 &6965507006470831380
 GameObject:
   m_ObjectHideFlags: 0

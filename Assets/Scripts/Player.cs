@@ -53,7 +53,11 @@ public class Player : SceneSingleton<Player>
         hit.OnButtonUp();
     }
 
-    public void Win() {
+    public void Win(string scene) {
+
+        Body.constraints = RigidbodyConstraints2D.FreezePosition;
+        Body.AddTorque(50);
+        SceneLoader.Instance.LoadLevel(scene);
     }
 
     internal void GameOver(CauseOfDeath causeOfDeath = CauseOfDeath.NotSpecified) {
