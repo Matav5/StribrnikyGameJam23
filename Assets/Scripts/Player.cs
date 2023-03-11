@@ -50,8 +50,19 @@ public class Player : SceneSingleton<Player>
     public void Win() {
     }
 
-    internal void GameOver() {
+    internal void GameOver(CauseOfDeath causeOfDeath = CauseOfDeath.NotSpecified) {
 
     }
 }
 
+
+public enum CauseOfDeath
+{
+    NotSpecified,
+    LostInDarkMatter,
+    PulledByBlackHole,
+    CrushedByStar,
+    CrushedByPlanet,
+    CrushedByAsteroid,
+    StuckInNebula
+}

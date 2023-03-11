@@ -386,6 +386,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74ad85134bb4934299c320180ffa19d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpeedForAll: 10
+  SetupObjectsManually: 1
   objects:
   - objectToRotate: {fileID: 3834958438644818309}
     axis: {x: 0, y: 0, z: 1}
@@ -460,6 +462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74ad85134bb4934299c320180ffa19d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpeedForAll: 10
+  SetupObjectsManually: 1
   objects:
   - objectToRotate: {fileID: 2086613765020259232}
     axis: {x: 0, y: 0, z: 1}
