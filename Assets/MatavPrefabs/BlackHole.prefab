@@ -153,9 +153,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472e994fa8047f347952010b649ad9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 3
+  graphicsSizeMult: 0.5
+  radiusDisplay: {fileID: 8700784726705678376}
   force: 100
-  radius: 5
-  outerRing: {fileID: 8700784726705678376}
+  increasedRadius: 5
+  wavePrefab: {fileID: 1410086272340364077, guid: a0b3c896b30d12845b89e88db616a704, type: 3}
 --- !u!95 &5107196250428252048
 Animator:
   serializedVersion: 4

@@ -8,17 +8,18 @@
    version="1.1"
    id="svg5"
    inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
-   sodipodi:docname="darkmatter.svg"
+   sodipodi:docname="effects.svg"
    inkscape:export-filename="C:\Work\StribrnikyGameJam23\Images_vector\dark_matter_4.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
      id="namedview7"
-     pagecolor="#ffffff"
+     pagecolor="#a5a5a5"
      bordercolor="#797979"
      borderopacity="1"
      inkscape:pageshadow="0"
@@ -27,9 +28,9 @@
      inkscape:document-units="mm"
      showgrid="true"
      units="px"
-     inkscape:zoom="0.64052329"
-     inkscape:cx="115.53054"
-     inkscape:cy="443.38747"
+     inkscape:zoom="0.90583672"
+     inkscape:cx="237.34962"
+     inkscape:cy="461.45181"
      inkscape:window-width="2560"
      inkscape:window-height="1334"
      inkscape:window-x="-11"
@@ -49,6 +50,18 @@
   </sodipodi:namedview>
   <defs
      id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2141">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop2137" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop2139" />
+    </linearGradient>
     <filter
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
@@ -62,32 +75,17 @@
          stdDeviation="46.102075"
          id="feGaussianBlur1415" />
     </filter>
-    <filter
+    <radialGradient
        inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter1797"
-       x="-0.22557758"
-       y="-0.23947788"
-       width="1.4511552"
-       height="1.4789558">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="44.842214"
-         id="feGaussianBlur1799" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter2001"
-       x="-0.21787075"
-       y="-0.24882197"
-       width="1.4357415"
-       height="1.4976439">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="53.291811"
-         id="feGaussianBlur2003" />
-    </filter>
+       xlink:href="#linearGradient2141"
+       id="radialGradient2143"
+       cx="67.733353"
+       cy="67.180061"
+       fx="67.733353"
+       fy="67.180061"
+       r="65.104546"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.38751782,0.67120055,-0.66409021,0.3834232,86.099071,-4.0409956)" />
   </defs>
   <g
      inkscape:label="Vrstva 1"
@@ -114,41 +112,14 @@
        inkscape:export-filename="C:\Work\StribrnikyGameJam23\Images_vector\dark_matter1.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
-    <path
-       sodipodi:type="star"
-       style="fill:#ffffff;fill-opacity:1;stroke-width:3.83622;filter:url(#filter1797)"
-       id="path1709"
-       inkscape:flatsided="false"
-       sodipodi:sides="6"
-       sodipodi:cx="301.31613"
-       sodipodi:cy="-173.29581"
-       sodipodi:r1="243.12015"
-       sodipodi:r2="165.3217"
-       sodipodi:arg1="0.73997488"
-       sodipodi:arg2="1.2635737"
-       inkscape:rounded="0.25"
-       inkscape:randomized="0.2"
-       d="M 463.97996,34.254218 C 449.94374,61.973644 341.44163,6.6065633 312.69806,21.922887 283.95449,37.239208 288.72917,84.99897 259.85635,77.945085 230.98352,70.8912 210.97113,18.979795 193.63567,-9.2692883 176.30021,-37.518369 49.663808,-102.19717 36.301395,-131.68827 c -13.362414,-29.49111 137.037845,-7.52249 138.210295,-41.4369 1.17245,-33.91441 -107.275877,-133.48516 -92.309033,-161.8821 14.966846,-28.39694 134.940823,13.81171 164.291513,0.97647 29.35069,-12.83523 106.09611,-40.5843 137.18025,-36.26625 31.08414,4.31805 -23.39423,66.74247 -6.0313,97.15197 17.36293,30.4095 123.82716,-18.93514 132.33819,15.23333 8.51103,34.16847 -5.52226,76.37176 -21.30725,106.10312 -15.78499,29.73136 -10.65788,158.3434248 -24.6941,186.062848 z"
-       transform="matrix(0.19108183,0,0,0.19108183,-187.28119,21.547617)"
-       inkscape:transform-center-x="5.2182493"
-       inkscape:transform-center-y="5.2064152" />
-    <path
-       sodipodi:type="star"
-       style="fill:#ffffff;fill-opacity:1;stroke-width:3.83622;filter:url(#filter2001)"
-       id="path1711"
-       inkscape:flatsided="false"
-       sodipodi:sides="6"
-       sodipodi:cx="501.15274"
-       sodipodi:cy="507.39764"
-       sodipodi:r1="289.90454"
-       sodipodi:r2="197.13509"
-       sodipodi:arg1="0.67474094"
-       sodipodi:arg2="1.1983397"
-       inkscape:rounded="0.25"
-       inkscape:randomized="0.2"
-       d="m 733.2314,661.46867 c -21.0045,30.24433 -144.78325,-12.36698 -178.76848,8.21985 -33.98524,20.58684 -13.68275,73.26484 -51.04746,73.38809 -37.36471,0.12325 -74.34043,2.16031 -105.75435,-26.28888 -31.41392,-28.44918 -145.74439,-83.48016 -156.33169,-121.96415 -10.5873,-38.48399 77.23496,-64.94103 74.92372,-106.14856 -2.31124,-41.20754 -15.45176,-88.15781 4.54551,-122.89638 19.99727,-34.73858 65.16001,-30.48972 98.74677,-55.98595 33.58675,-25.49623 103.19993,-76.25686 145.48532,-80.49654 42.28539,-4.23969 65.76275,73.26349 103.72542,87.91096 37.96266,14.64747 137.06759,74.14266 156.32983,109.12431 19.26223,34.98164 -83.68086,57.99452 -79.26556,96.94685 4.41529,38.95233 8.41547,107.94606 -12.58903,138.1904 z"
-       transform="matrix(0.1607407,0,0,0.1607407,-17.355364,-10.0977)"
-       inkscape:transform-center-x="-5.2745432"
-       inkscape:transform-center-y="-3.4169069" />
+    <circle
+       style="fill:url(#radialGradient2143);fill-opacity:1;stroke-width:1.12276"
+       id="circle1040"
+       cx="67.73333"
+       cy="67.73333"
+       r="65.104546"
+       inkscape:export-filename="C:\Work\StribrnikyGameJam23\Images_vector\effect_blur.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
   </g>
 </svg>

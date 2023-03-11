@@ -9,58 +9,38 @@ public class Star : GravityObject, IInteractable
     public float pullForce = 5;
     [SerializeField]
     public float pulseForce = 100;
-    [SerializeField]
-    private float radius = 5;
-    [SerializeField]
-    private SpriteRenderer outerRing;
-    public float Radius
-    {
-        get
-        {
-            return radius;
-        }
-        set
-        {
-            radius = value;
-            SetRadius();
-        }
-    }
-    private void SetRadius()
-    {
-        outerRing.transform.localScale = Vector3.one * radius;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        SetRadius();
-    }
 
-    private void FixedUpdate()
-    {
-        if (Vector2.Distance(transform.position, Player.Instance.transform.position) < Radius)
-        {
-            
-            Rigidbody2D RbTpAttract = Player.Instance.Body;
+    [SerializeField]
+    private Transform wavePrefab;
+    [SerializeField]
+    private Transform graphicsRef;
 
-            RbTpAttract.AddForce((Body.position - Player.Instance.Body.position).normalized * pullForce);
-             
-        }
+    public override void ApplyGravityForce() {
+        Player.Instance.Body.AddForce((Body.position - Player.Instance.Body.position).normalized * pullForce);
     }
 
     public void OnButtonDown()
     {
-        if (Vector2.Distance(transform.position, Player.Instance.transform.position) < Radius)
+        EmitWave();
+
+        if (CheckRadius())
         {
             Rigidbody2D RbTpAttract = Player.Instance.Body;
-
             RbTpAttract.AddForce((Player.Instance.Body.position - Body.position).normalized * pulseForce);
         }
+    }
+
+    private void EmitWave() {
+        var wave = Instantiate(wavePrefab, transform.position, Quaternion.identity);
+        LeanTween.color(wave.gameObject, new Color(1f,1f,1f,0f), 0.12f).setDelay(0.04f).setDestroyOnComplete(true);
+        LeanTween.scale(wave.gameObject, Vector3.one * 6f, 0.15f);
     }
 
     public void OnButtonUp()
     {
         //Nic
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.rigidbody.gameObject == Player.Instance.gameObject)
