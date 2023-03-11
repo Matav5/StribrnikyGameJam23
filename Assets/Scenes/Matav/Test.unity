@@ -178,10 +178,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star
       objectReference: {fileID: 0}
-    - target: {fileID: 7770496030901535195, guid: 0f6dfc6c4629e5044832b3d9c41fadb1, type: 3}
-      propertyPath: pulseForce
-      value: 300
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f6dfc6c4629e5044832b3d9c41fadb1, type: 3}
 --- !u!1001 &160277055
@@ -197,11 +193,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1853784117698319691, guid: 270eb22bedea6b04c979e5cefe7c734c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.11
+      value: 10.39
       objectReference: {fileID: 0}
     - target: {fileID: 1853784117698319691, guid: 270eb22bedea6b04c979e5cefe7c734c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.93
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 1853784117698319691, guid: 270eb22bedea6b04c979e5cefe7c734c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -845,6 +841,10 @@ PrefabInstance:
     - target: {fileID: 8700784726705678376, guid: d503c3c7c0028e54787c07053cf45487, type: 3}
       propertyPath: m_Color.a
       value: 0.34509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 8700784727081347381, guid: d503c3c7c0028e54787c07053cf45487, type: 3}
+      propertyPath: graphicsSizeMult
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8700784727081347381, guid: d503c3c7c0028e54787c07053cf45487, type: 3}
       propertyPath: visualWavesCooldown

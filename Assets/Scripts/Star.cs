@@ -48,4 +48,6 @@ public class Star : GravityObject, IInteractable
             Player.Instance.GameOver();
         }
     }
+
+
 }

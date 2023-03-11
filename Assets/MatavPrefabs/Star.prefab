@@ -5444,11 +5444,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e90690f872e8c43bb92c5b83214e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2
-  graphicsSizeMult: 0.5
+  radius: 4
+  graphicsSizeMult: 0.4
   radiusDisplay: {fileID: 2059157791}
   pullForce: 5
-  pulseForce: 100
+  pulseForce: 300
   wavePrefab: {fileID: 1410086272340364077, guid: cd400c93f875ada4dba947ec4877e88f, type: 3}
   graphicsRef: {fileID: 5144006001091770672}
 --- !u!95 &1538830957

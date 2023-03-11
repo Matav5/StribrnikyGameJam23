@@ -52,6 +52,6 @@ public abstract class GravityObject : MonoBehaviour
     public abstract void ApplyGravityForce();
 
     public void OnDrawGizmos() {
-        Gizmos.DrawWireCube(transform.position, Vector3.one * radius);
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }
