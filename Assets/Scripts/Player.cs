@@ -6,10 +6,12 @@ using UnityEngine;
 
 public class Player : SceneSingleton<Player>
 {
-    public Rigidbody2D Body;
+    private Rigidbody2D body;
+    public Rigidbody2D Body => body;
+
     protected override void Awake()
     {
-        Body = GetComponent<Rigidbody2D>();
+        body = GetComponent<Rigidbody2D>();
     }
     private void Start()
     {

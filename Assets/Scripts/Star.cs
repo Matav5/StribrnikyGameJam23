@@ -51,9 +51,9 @@ public class Star : GravityObject, IInteractable
     }
 
     private void OnDrawGizmos()
-    {
-        
-        Gizmos.DrawSphere(transform.position, Radius);
+    {   
+        Gizmos.color= Color.green;
+        Gizmos.DrawWireSphere(transform.position, Radius);
     }
 
   

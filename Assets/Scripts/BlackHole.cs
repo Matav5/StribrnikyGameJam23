@@ -53,15 +53,14 @@ public class BlackHole : GravityObject, IInteractable
     private void OnDrawGizmos()
     {
 
-        Gizmos.DrawSphere(transform.position, Radius);
+        Gizmos.DrawWireSphere(transform.position, Radius);
     }
 
    
     public void OnButtonDown()
     {
         Debug.Log("clikc");
-   
-            Radius = radius * 2;
+        Radius = radius * 2;
  
     }
 
