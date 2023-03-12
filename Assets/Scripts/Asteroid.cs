@@ -15,6 +15,12 @@ public class Asteroid : MonoBehaviour
     public void Push(System.Random rnd, Vector2Int asteroidPush)
     {
         body.AddForce(transform.up * rnd.Next(asteroidPush.x, asteroidPush.y));
-
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.rigidbody.gameObject == Player.Instance.gameObject)
+        {
+            Player.Instance.GameOver(CauseOfDeath.CrushedByAsteroid);
+        }
     }
 }

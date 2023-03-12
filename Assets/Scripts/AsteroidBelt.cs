@@ -32,7 +32,7 @@ public class AsteroidBelt : MonoBehaviour
     private void SpawnAsteroid()
     {
         Vector2 pos = spawn.position + spawn.right * (rnd.Next(-50, 50) * range / 100);
-        var gmb = Instantiate(asteroid, pos, Quaternion.identity);
+        var gmb = Instantiate(asteroid, pos, Quaternion.identity, transform);
         gmb.transform.localEulerAngles = new Vector3(0, 0, -180);
         gmb.Push(rnd, asteroidPush);
     }

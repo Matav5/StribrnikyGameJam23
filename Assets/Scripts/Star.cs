@@ -45,7 +45,7 @@ public class Star : GravityObject, IInteractable
     {
         if (collision.rigidbody.gameObject == Player.Instance.gameObject)
         {
-            Player.Instance.GameOver();
+            Player.Instance.GameOver(CauseOfDeath.CrushedByStar);
         }
     }
 
