@@ -12,6 +12,7 @@ public class Player : SceneSingleton<Player>
     public CinemachineVirtualCamera PlayerCamera;
     public Volcano Volcano;
 
+   
     protected override void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -62,6 +63,14 @@ public class Player : SceneSingleton<Player>
 
     internal void GameOver(CauseOfDeath causeOfDeath = CauseOfDeath.NotSpecified) {
         SceneLoader.Instance.Restart();
+    }
+    public void SlowDrag(float slowDrag)
+    {
+        body.drag = slowDrag;
+    }
+    public void ResetDrag()
+    {
+        body.drag = 0;
     }
 }
 

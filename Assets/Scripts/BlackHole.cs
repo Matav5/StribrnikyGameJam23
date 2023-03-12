@@ -7,12 +7,13 @@ using UnityEngine;
 public class BlackHole : GravityObject, IInteractable
 {
     [SerializeField]
-    public float force = 100;
-
+    public float pullForce = 5;
+    private float defPullForce;
     private float normalRadius;
     [SerializeField]
     private float increasedRadius = 5;
-
+    [SerializeField]
+    private float increasedPullForce = 10;
     [SerializeField]
     private Transform wavePrefab;
 
@@ -39,7 +40,7 @@ public class BlackHole : GravityObject, IInteractable
 
     public override void ApplyGravityForce() {
         Rigidbody2D RbTpAttract = Player.Instance.Body;
-        RbTpAttract.AddForce((Body.position - Player.Instance.Body.position).normalized * force);
+        RbTpAttract.AddForce((Body.position - Player.Instance.Body.position).normalized * pullForce);
     }
 
     public void OnButtonDown()
@@ -47,14 +48,17 @@ public class BlackHole : GravityObject, IInteractable
         normalRadius = Radius;
         Radius = increasedRadius;
         isActivated = true;
+        defPullForce = pullForce;
+        pullForce = increasedPullForce;
     }
 
     public void OnButtonUp()
     {
         Radius = normalRadius;
         isActivated = false;
+        pullForce = defPullForce;
     }
-    
+
 
 
     private void OnCollisionEnter2D(Collision2D collision)
