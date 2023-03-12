@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : SceneSingleton<SceneLoader>
 {
     // Start is called before the first frame update
-   
 
+    private bool isLoading = false;
 
     public void Restart()
     {
@@ -16,25 +16,29 @@ public class SceneLoader : SceneSingleton<SceneLoader>
     }
     public void LoadLevel(string scene)
     {
-        StartCoroutine(LoadLevelCoroutine(scene));
+        if(!isLoading)
+            StartCoroutine(LoadLevelCoroutine(scene));
 
     }
     public void LoadLevel(int level, int part)
     {
-        StartCoroutine(LoadLevelCoroutine($"Level-{level}-{part}"));
+        if(!isLoading)
+            StartCoroutine(LoadLevelCoroutine($"Level-{level}-{part}"));
 
     }
     private IEnumerator LoadLevelCoroutine(string scene)
     {
+        isLoading = true;
         if (UIManager.HasInstance() && UIManager.Instance.FadeAnimation != null)
         {
             UIManager.Instance.FadeAnimation.FadeOut();
             yield return new WaitForSeconds(1);
-            SceneManager.LoadScene(scene);
         }
+        SceneManager.LoadScene(scene);
     }
     private IEnumerator RestartCoroutine()
     {
+        isLoading = true;
         if (UIManager.HasInstance() && UIManager.Instance.FadeAnimation != null)
         {
             UIManager.Instance.FadeAnimation.FadeOut();
