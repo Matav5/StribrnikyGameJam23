@@ -16,6 +16,7 @@ public class Player : SceneSingleton<Player>
 
     public bool IsVolcanoAllowed;
 
+   
     protected override void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -76,6 +77,14 @@ public class Player : SceneSingleton<Player>
 
         LeanTween.scale(gameObject, Vector3.zero, 1.45f);
         SceneLoader.Instance.Restart();
+    }
+    public void SlowDrag(float slowDrag)
+    {
+        body.drag = slowDrag;
+    }
+    public void ResetDrag()
+    {
+        body.drag = 0;
     }
 }
 
