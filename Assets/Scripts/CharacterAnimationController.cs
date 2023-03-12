@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class CharacterAnimationController : MonoBehaviour
@@ -16,8 +15,9 @@ public class CharacterAnimationController : MonoBehaviour
     [SerializeField]
     private SpriteRenderer circleRenderer;
 
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         animator = GetComponentInChildren<Animator>();
         body = GetComponent<Rigidbody2D>();
@@ -27,5 +27,18 @@ public class CharacterAnimationController : MonoBehaviour
     // Update is called once per frame
     void Update() {
         animator.SetFloat(ROTATION, body.angularVelocity);
+    }
+
+    public void PlaySad() {
+        animator.SetTrigger(SAD);
+    }
+    public void PlaySatisfied() {
+        animator.SetTrigger(SATISFIED);
+    }
+    public void PlayHappy() {
+        animator.SetTrigger(HAPPY);
+    }
+    public void PlaySurprised() {
+        animator.SetTrigger(SURPRISED);
     }
 }

@@ -1,15 +1,19 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class Volcano : MonoBehaviour
 {
     public float Force = 100;
     public bool RemoveAtUsage = true;
     public Transform Pivot;
-    
+
+    public Sprite destroyedSprite;
+    public List<Rigidbody2D> partTypes = new List<Rigidbody2D>();
+    public float partsEnergy = 100;
+
     public void StartFiring()
     {
         StartCoroutine(Fire());
@@ -36,7 +40,24 @@ public class Volcano : MonoBehaviour
         Player.Instance.Body.AddForce((Player.Instance.Body.position  - new Vector2(mouse.x, mouse.y)).normalized * Force);
         if (RemoveAtUsage)
         {
-            Destroy(gameObject);
+            Pop();
+        }
+    }
+
+    private void Pop() {
+        GetComponentInChildren<SpriteRenderer>().sprite = destroyedSprite;
+        CreateParts(5);
+    }
+
+    private void CreateParts(int count) {
+        for (int i = 0; i < count; i++) {
+            var stone = Instantiate(partTypes[UnityEngine.Random.Range(0, partTypes.Count)], transform.position, Quaternion.identity);
+            var dir = Pivot.position - transform.position;
+            dir.x *= Random.Range(0.9f, 0.9f);
+            dir.y *= Random.Range(0.9f, 0.9f);
+            stone.AddForce((dir) * partsEnergy);
+            LeanTween.rotateZ(stone.gameObject, UnityEngine.Random.Range(-50, 50), 0.3f);
+            Destroy(stone, 0.3f);
         }
     }
 }

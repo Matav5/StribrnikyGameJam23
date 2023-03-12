@@ -387,6 +387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedForAll: 10
+  RandomSpeed: 0
   SetupObjectsManually: 1
   objects:
   - objectToRotate: {fileID: 3834958438644818309}
@@ -463,6 +464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedForAll: 10
+  RandomSpeed: 0
   SetupObjectsManually: 1
   objects:
   - objectToRotate: {fileID: 2086613765020259232}

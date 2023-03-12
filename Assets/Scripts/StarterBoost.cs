@@ -13,6 +13,7 @@ public class StarterBoost : MonoBehaviour
             Player.Instance.Body.velocity = Vector2.zero;
            Vector2 dir = directionPoint.position - transform.position;
             Player.Instance.Body.AddForce(dir.normalized * force);
+            Player.Instance.Animator.PlaySurprised();
         }
     }
 }

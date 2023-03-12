@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9fe6905b123c22841a2306e1f53f82a3, type: 3}
-  m_Color: {r: 0.49056602, g: 0, b: 0.397125, a: 0.20392157}
+  m_Color: {r: 0.754717, g: 0.36074516, b: 0.6442701, a: 0.25490198}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -154,11 +154,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
-  graphicsSizeMult: 0.5
+  graphicsSizeMult: 0.4
   radiusDisplay: {fileID: 8700784726705678376}
-  force: 100
+  force: 30
   increasedRadius: 5
   wavePrefab: {fileID: 1410086272340364077, guid: a0b3c896b30d12845b89e88db616a704, type: 3}
+  visualWavesCooldown: 0.3
 --- !u!95 &5107196250428252048
 Animator:
   serializedVersion: 4
@@ -222,7 +223,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398716661076661314}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -441,7 +442,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0a3329ea746bdcd4a9fbfbe1115cf17b, type: 3}
-  m_Color: {r: 0.754717, g: 0.14714602, b: 0.52637756, a: 0.5529412}
+  m_Color: {r: 0.754717, g: 0.14714602, b: 0.52637756, a: 0.34509805}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -525,7 +526,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9fe6905b123c22841a2306e1f53f82a3, type: 3}
-  m_Color: {r: 0.3301887, g: 0, b: 0.2669523, a: 0.57254905}
+  m_Color: {r: 0.9815761, g: 1, b: 0.47798735, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

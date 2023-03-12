@@ -17,6 +17,7 @@ public class Star : GravityObject, IInteractable
 
     public override void ApplyGravityForce() {
         Player.Instance.Body.AddForce((Body.position - Player.Instance.Body.position).normalized * pullForce);
+        Player.Instance.Animator.PlayHappy();
     }
 
     public void OnButtonDown()
