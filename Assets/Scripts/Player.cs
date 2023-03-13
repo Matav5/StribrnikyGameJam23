@@ -4,9 +4,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : SceneSingleton<Player>
 {
+    private const string LAST_FINISHED_WORLD = "LastWonWorld";
+    private const string LAST_FINISHED_PIECE = "LastWonPiece";
+
+
     private Rigidbody2D body;
     public Rigidbody2D Body => body;
     public CinemachineVirtualCamera PlayerCamera;
@@ -16,13 +21,17 @@ public class Player : SceneSingleton<Player>
 
     public bool IsVolcanoAllowed;
 
-   
+    private int world=-1;
+    private int level=-1;
+
     protected override void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         characterAnimationController = GetComponent<CharacterAnimationController>();
-        if (!IsVolcanoAllowed)
+        if (!IsVolcanoAllowed) {
+            this.Volcano.transform.parent.gameObject.SetActive(false);
             Volcano = null;
+        }
     }
     private void Start()
     {
@@ -30,6 +39,14 @@ public class Player : SceneSingleton<Player>
         Body.AddForce(dir.normalized * 100);
 
         characterAnimationController.PlaySad();
+
+        var scene = SceneManager.GetActiveScene();
+        if (int.TryParse(scene.name[5].ToString(), out int wrld)) {
+            if (int.TryParse(scene.name[12].ToString(), out int lvl)) {
+                this.world = wrld;
+                this.level = lvl;
+            }
+        }
     }
     private void FixedUpdate()
     {
@@ -64,17 +81,29 @@ public class Player : SceneSingleton<Player>
         hit.OnButtonUp();
     }
 
-    public void Win(string scene) {
+    public void Win(string scene, bool wasLastInWord = false) {
 
         Body.constraints = RigidbodyConstraints2D.FreezePosition;
         Body.AddTorque(50);
         LeanTween.scale(gameObject, Vector3.zero, 1.45f);
         characterAnimationController.PlaySatisfied();
+
+
+        if (wasLastInWord) {
+            PlayerPrefs.SetInt(LAST_FINISHED_WORLD, world + 1);
+            AchievementHolder.Instance.WorldDone();
+        }
+
+        int lastFinishedPiece = PlayerPrefs.GetInt(LAST_FINISHED_PIECE + world, 0);
+        if (level > lastFinishedPiece)
+            PlayerPrefs.SetInt(LAST_FINISHED_PIECE + world, level);
+
         SceneLoader.Instance.LoadLevel(scene);
     }
 
     internal void GameOver(CauseOfDeath causeOfDeath = CauseOfDeath.NotSpecified) {
 
+        AchievementHolder.Instance.PlayerDied();
         LeanTween.scale(gameObject, Vector3.zero, 1.45f);
         SceneLoader.Instance.Restart();
     }

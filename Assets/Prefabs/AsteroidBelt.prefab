@@ -152,7 +152,10 @@ MonoBehaviour:
   spawn: {fileID: 1751128693332825405}
   Belt: {fileID: 2994751438662734707}
   Interval: {x: 1, y: 3}
-  asteroid: {fileID: 1238536132353579632, guid: f5f0b39448e47d241980e2ac3828aa50, type: 3}
+  asteroidPrefabs:
+  - {fileID: 1238536132353579632, guid: 397a99aecdf329042ac7777ac49b4e35, type: 3}
+  - {fileID: 1238536132353579632, guid: 94e2b5219a3aa1941b31e3d1b7d5b7a3, type: 3}
+  - {fileID: 1238536132353579632, guid: f5f0b39448e47d241980e2ac3828aa50, type: 3}
   asteroidPush: {x: 200, y: 400}
 --- !u!1 &2994751438662734716
 GameObject:

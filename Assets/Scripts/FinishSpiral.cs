@@ -8,6 +8,8 @@ public class FinishSpiral : GravityObject
     [SerializeField]
     public float force = 30;
 
+    public bool isLastInWorld = false;
+
     public override void ApplyGravityForce() {
         Rigidbody2D RbTpAttract = Player.Instance.Body;
         RbTpAttract.AddForce((Body.position - Player.Instance.Body.position).normalized * force);
@@ -18,7 +20,7 @@ public class FinishSpiral : GravityObject
         if(Player.Instance.gameObject == collision.attachedRigidbody.gameObject)
         {
             LeanTween.move(Player.Instance.gameObject, transform, 0.5f);
-            Player.Instance.Win(SceneToLoadAfterWinning);
+            Player.Instance.Win(SceneToLoadAfterWinning, isLastInWorld);
         }
     }
 }

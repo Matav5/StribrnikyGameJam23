@@ -14,21 +14,23 @@ public class Volcano : MonoBehaviour
     public List<Rigidbody2D> partTypes = new List<Rigidbody2D>();
     public float partsEnergy = 100;
 
-    public void StartFiring()
-    {
-        StartCoroutine(Fire());
-      
+    private SpriteRenderer graphics;
+
+    private void Start() {
+        graphics = GetComponentInChildren<SpriteRenderer>();
     }
-    public IEnumerator Fire()
-    {
+
+    public void StartFiring() {
+        StartCoroutine(Fire());
+
+    }
+    public IEnumerator Fire() {
         Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        while (Input.GetMouseButton(0))
-        {
+        while (Input.GetMouseButton(0)) {
             mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 lookDir = transform.position - mouse;
             lookDir.y = 0;
-            if (mouse != transform.position)
-            {
+            if (mouse != transform.position) {
                 Vector3 lookPos = mouse - Pivot.position;
                 float angle = Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg;
                 Pivot.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
@@ -37,16 +39,21 @@ public class Volcano : MonoBehaviour
         }
         mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        Player.Instance.Body.AddForce((Player.Instance.Body.position  - new Vector2(mouse.x, mouse.y)).normalized * Force);
-        if (RemoveAtUsage)
-        {
+        Player.Instance.Body.AddForce((Player.Instance.Body.position - new Vector2(mouse.x, mouse.y)).normalized * Force);
+        if (RemoveAtUsage) {
             Pop();
         }
+
     }
 
     private void Pop() {
-        GetComponentInChildren<SpriteRenderer>().sprite = destroyedSprite;
+        graphics.sprite = destroyedSprite;
+        graphics.transform.Translate(-Vector3.up * 0.1f, Space.Self);
+
         CreateParts(5);
+        enabled = false;
+        StopAllCoroutines();
+        Destroy(this);
     }
 
     private void CreateParts(int count) {

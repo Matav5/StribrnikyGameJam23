@@ -11,7 +11,7 @@ public class AsteroidBelt : MonoBehaviour
     public Transform spawn;
     public Transform Belt;
     public Vector2Int Interval;
-    public Asteroid asteroid;
+    public List<Asteroid> asteroidPrefabs;
     public Vector2Int asteroidPush;
     public float Range => Belt.localScale.x;
     private void Awake()
@@ -31,7 +31,7 @@ public class AsteroidBelt : MonoBehaviour
     private void SpawnAsteroid()
     {
         Vector2 pos = spawn.position + spawn.right * (rnd.Next(-50, 50) * Range / 100);
-        var gmb = Instantiate(asteroid, pos, Quaternion.identity, transform);
+        var gmb = Instantiate(asteroidPrefabs.Random(), pos, Quaternion.identity, transform);
         gmb.transform.localEulerAngles = new Vector3(0, 0, -180);
         gmb.Push(rnd, asteroidPush);
     }
