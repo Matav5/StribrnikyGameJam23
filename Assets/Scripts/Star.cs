@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -15,6 +16,8 @@ public class Star : GravityObject, IInteractable
     [SerializeField]
     private Transform graphicsRef;
 
+    public MMF_Player PulseFeedback;
+
     public override void ApplyGravityForce() {
         Player.Instance.Body.AddForce((Body.position - Player.Instance.Body.position).normalized * pullForce);
         Player.Instance.Animator.PlayHappy();
@@ -23,12 +26,14 @@ public class Star : GravityObject, IInteractable
     public void OnButtonDown()
     {
         EmitWave();
+        PulseFeedback?.PlayFeedbacks();
 
         if (CheckRadius())
         {
             Rigidbody2D RbTpAttract = Player.Instance.Body;
             RbTpAttract.AddForce((Player.Instance.Body.position - Body.position).normalized * pulseForce);
-        }
+
+}
     }
 
     private void EmitWave() {
